@@ -3,6 +3,7 @@ package com.example.testtask;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
 import java.util.ArrayList;
@@ -16,6 +17,11 @@ public class TestBase {
         wd = new ChromeDriver();
         wd.manage().window().maximize();
         openSite("https://yandex.ru/");
+    }
+
+    @AfterClass
+    public void tearDown(){
+        wd.quit();
     }
 
     public void filterItem(item item) {
