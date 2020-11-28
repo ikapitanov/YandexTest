@@ -26,6 +26,7 @@ public class SearchItemTests extends TestBase{
 
         searchItemFromSearchBox(itemName);
         String foundItemName = getItemNameFromListByOrder(1);
+        Thread.sleep(2000);
         Assert.assertEquals(foundItemName, itemName);
 
         /*
@@ -41,15 +42,6 @@ public class SearchItemTests extends TestBase{
 12. Найти и проверить, что наименование товара соответствует запомненному
 значению.
         */
-    }
-
-    public void searchItemFromSearchBox(String itemName) {
-        type(By.cssSelector("#header-search"), itemName);
-        click(By.cssSelector("[type=submit]"));
-    }
-
-    public String getItemNameFromListByOrder(int number) {
-        return wd.findElement(By.xpath("//*[@data-autotest-id='product-snippet']["+number+"]//h3")).getText();
     }
 
 }

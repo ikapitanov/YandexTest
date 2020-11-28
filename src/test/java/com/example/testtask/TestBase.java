@@ -63,4 +63,13 @@ public class TestBase {
             wd.switchTo().window(availableWindows.get(1));
         }
     }
+
+    public void searchItemFromSearchBox(String itemName) {
+        type(By.cssSelector("#header-search"), itemName);
+        click(By.cssSelector("[type=submit]"));
+    }
+
+    public String getItemNameFromListByOrder(int number) {
+        return wd.findElement(By.xpath("//*[@data-autotest-id='product-snippet']["+number+"]//h3")).getText();
+    }
 }
